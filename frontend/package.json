@@ -1,0 +1,16 @@
+{
+  "name": "pomodoro-flow-webpage",
+  "version": "1.0.0",
+  "description": "The only task manager you will ever need for peak productivity.",
+  "license": "ISC",
+  "author": "GSPTeck",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "^19.1.0"
+  },
+  "devDependencies": {}
+}
