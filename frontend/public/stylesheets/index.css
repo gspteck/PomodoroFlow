@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap');
+
+
+/*  General  */
+:root {
+  --mainFont: Noto Sans JP;
+  --dottedFont: Bitcount Prop Single;
+
+  --pinkColor: #F456FF;
+}
+
+body {
+  backgroud-color: #FFF456;
+}
+
+/*  Header  */
+#header {
+  height: 75px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+#header img {
+  width: 50px;
+  filter: hue-rotate(300deg);
+}
+#header h1 {
+  font-family: var(--dottedFont);  
+  color: var(--pinkColor);
+}
+#header button {
+  width: 100px;
+  height: 45px;
+  color: white;
+  background-color: var(--pinkColor);
+  border: transparent;
+  border-radius: 15px;
+  font-weight: bold;
+}
