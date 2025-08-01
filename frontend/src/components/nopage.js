@@ -1,8 +1,13 @@
 import React from 'react';
 
+import '../stylesheets/nopage.css';
+
 function NoPage() {
   return (
-    <h3>This is the home page.</h3>
+    <div>
+      <br />
+      <h2>Page is not available.</h2>
+    </div>
   );
 }
 
