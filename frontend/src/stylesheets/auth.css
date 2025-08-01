@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap');
+
+/*  General  */
+:root {
+   --mainFont: Noto Sans JP;
+   --dottedFont: Bitcount Prop Single;
+
+   --pinkColor: #F456FF;
+   --lightPinkColor: #FFD9FF;
+ }
+
+ /*  Form  */
+ #form-wrapper {
+   width: 70vw;
+   margin-left: 15vw;
+   margin-top: 50px;
+   margin-right: 15vw;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+ }
+ #form-wrapper h2 {
+   font-family: var(--dottedFont);
+   color: var(--pinkColor);
+ }
+ #form-wrapper form label {
+   margin-left: 2vw;
+ }
+ #form-wrapper form input {
+   width: 50vw;
+   height: 30px;
+   margin-bottom: 10px;
+   border: 3px solid var(--pinkColor);
+   border-radius: 15px;
+   padding-left: 10px;
+   padding-right: 10px;
+ }
+
+ #submit {
+   color: white;
+   font-weight: bold;
+   background-color: var(--pinkColor);
+ }
+
+ #form-wrapper form button {
+   border: none;
+   background-color: transparent;
+ }

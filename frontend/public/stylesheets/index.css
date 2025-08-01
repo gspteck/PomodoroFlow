@@ -32,12 +32,3 @@ body {
   font-family: var(--dottedFont);  
   color: var(--pinkColor);
 }
-#header button {
-  width: 100px;
-  height: 45px;
-  color: white;
-  background-color: var(--pinkColor);
-  border: transparent;
-  border-radius: 15px;
-  font-weight: bold;
-}

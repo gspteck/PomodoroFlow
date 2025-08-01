@@ -6,11 +6,11 @@ import '../stylesheets/home.css'
 
 function Home() {
   function handleAccessClick() {
-    window.open(window.location.origin + '/auth', '_blank');
+    window.open(window.location.origin + '/auth', '_self');
   }
 
   return (
-    <div>
+    <>
       <div id="top-wrapper">
         <div id="left-side">
           <div>
@@ -59,7 +59,7 @@ function Home() {
       <div id="footer">
         <h4><a href="https://gspteck.com" target="_blank">Created by gspteck.</a></h4>
       </div>
-    </div>
+    </>
   );
 }
 
