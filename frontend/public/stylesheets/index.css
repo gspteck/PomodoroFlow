@@ -8,27 +8,3 @@
 
   --pinkColor: #F456FF;
 }
-
-body {
-  backgroud-color: #FFF456;
-}
-
-/*  Header  */
-#header {
-  height: 75px;
-  padding-left: 10px;
-  padding-right: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-}
-#header img {
-  width: 50px;
-  filter: hue-rotate(300deg);
-}
-#header h1 {
-  font-family: var(--dottedFont);  
-  color: var(--pinkColor);
-}
