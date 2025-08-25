@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { NavBar } from './nav.js';
+
 import '../stylesheets/home.css'
 
 //import '../../public/assets/todocreenshot.png'
@@ -11,6 +13,8 @@ function Home() {
 
   return (
     <>
+			<NavBar />
+
       <div id="top-wrapper">
         <div id="left-side">
           <div>

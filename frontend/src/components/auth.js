@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { NavBar } from './nav.js';
+
 import '../stylesheets/auth.css';
 
 function Auth() {
@@ -11,6 +13,8 @@ function Auth() {
 
   return (
     <>
+			<NavBar />
+
       { hasAccount ?
         (
           <div id="form-wrapper">

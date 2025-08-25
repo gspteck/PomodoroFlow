@@ -9,15 +9,20 @@
    --lightPinkColor: #FFD9FF;
 }
 
+body {
+	margin: 0;
+	padding: 0;
+}
+
 /*  Landing Navigation  */
 nav {
-   width: 100vw;
+   width: 90vw;
    height: 75px;
    padding: 10px;
    display: flex;
    flex-direction: row;
    justify-content: space-between;
-   align-items: center;
+   align-items: center; 
 }
 nav img {
    width: 50px;
@@ -35,4 +40,25 @@ nav button {
 }
 
 
- /*  Menu Navigation  */
+/*  Menu Navigation  */
+#menu-container {
+	width: 300px;
+	height: 100vh;
+
+	background-color: black;
+}
+#top-section {
+	background-color: yellow;
+	width: 260px;
+	height: 75px;
+	padding-left: 20px;
+	padding-right: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+#top-section img {
+   width: 30px;
+   filter: hue-rotate(310deg);
+}

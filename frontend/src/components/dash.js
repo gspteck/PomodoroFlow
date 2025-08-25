@@ -1,8 +1,16 @@
 import React from 'react';
 
+import { DashMenu } from './nav.js'
+
 function Dash() {
   return (
-    <h3>This is the dash page.</h3>
+		<>
+			<div id="dash-wrapper">
+				<DashMenu />
+				<div id="dash-content">
+				</div>
+			</div>
+		</>
   );
 }
 
