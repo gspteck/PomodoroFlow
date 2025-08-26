@@ -14,72 +14,84 @@ class TasksController extends Controller
     }
 
     public function createTask(Request $request) {
-        $task = new Tasks;
+        try {
+            $validatedData = $request->validate([
+                'user_id' => 'required|integer',
+                'task_title' => 'required|string|max:255',
+                'task_description' => 'nullable|string',
+                'task_status' => 'required|boolean',
+                'task_due_date' => 'nullable|date',
+                'task_priority' => 'nullable|integer', //  0 - 2 => LOW - HIGH
+            ]);
 
-        $task->task_id = $request->task_id;
-        $task->user_id = $request->user_id;
-        $task->task_title = $request->task_title;
-        $task->task_description = $request->task_description;
-        $task->task_status = $request->task_status;
-        $task->task_due_date = $request->task_due_date;
-        $task->task_creation_date = $request->task_creation_date;
-        $task->task_update_date = $request->task_update_date;
-        $task->task_priority = $request->task_priority;
+            $task = Tasks::create($validatedData);
 
-        $task->save();
-
-        return response()->json([
-            "message" => "Task Added Successfully."
-        ], 201);
+            return response()->json([
+                "message" => "Task Added Successfully.",
+                "task" => $task
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error creating task', 'message' => $e->getMessage()], 500);
+        }
     }
 
     public function getSingleTask($id) {
-        $task = Tasks::find($id);
-        if (!empty($task)) {
-            return response()->json(task);
-        } else {
-            return response()->json([
-                "message" => "Task not found."
-            ], 404);
+        try {
+            $task = Tasks::find($id);
+            if (!empty($task)) {
+                return response()->json($task);
+            } else {
+                return response()->json([
+                    "message" => "Task not found."
+                ], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error creating task', 'message' => $e->getMessage()], 500);
         }
     }
 
     public function deleteTask($id) {
-        if (Tasks::where('task_id', $id)->exists()) {
-            $task = Tasks::find($id);
-            $task->delete();
+        try {
+            if (Tasks::where('id', $id)->exists()) {
+                $task = Tasks::find($id);
+                $task->delete();
 
-            return response()->json([
-                "message" => "Task deleted successfully."
-            ], 202);
-        } else {
-            return response()->json([
-                "message" => "Task not found."
-            ], 404);
+                return response()->json([
+                    "message" => "Task deleted successfully."
+                ], 202);
+            } else {
+                return response()->json([
+                    "message" => "Task not found."
+                ], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error creating task', 'message' => $e->getMessage()], 500);
         }
     }
 
     public function updateTask(Request $request, $id) {
-        if (Tasks::where('task_id', $id)->exists()) {
-            $task = Tasks::find($id);
+        try {
+            if (Tasks::where('id', $id)->exists()) {
+                $task = Tasks::find($id);
 
-            $task->task_title = is_null($request->task_title) ? $task->task_title : $request->task_title;
-            $task->task_description = is_null($request->task_description) ? $task->task_description : $request->task_description;
-            $task->task_status = is_null($request->task_status) ? $task->task_status : $request->task_status;
-            $task->task_due_date = is_null($request->task_due_date) ? $task->task_due_date : $request->task_due_date;
-            $task->task_update_date = 1234; // change to change ith every update to current timestamp;
-            $task->task_priority = is_null($request->task_priority) ? $task->task_priority : $request->task_priority;
+                $task->task_title = is_null($request->task_title) ? $task->task_title : $request->task_title;
+                $task->task_description = is_null($request->task_description) ? $task->task_description : $request->task_description;
+                $task->task_status = is_null($request->task_status) ? $task->task_status : $request->task_status;
+                $task->task_due_date = is_null($request->task_due_date) ? $task->task_due_date : $request->task_due_date;
+                $task->task_priority = is_null($request->task_priority) ? $task->task_priority : $request->task_priority;
 
-            $task->save();
+                $task->save();
 
-            return response()->json([
-                "message" => "Task updated successfully"
-            ], 404);
-        } else {
-            return response()->json([
-                "message" => "Task not found"
-            ], 404);
+                return response()->json([
+                    "message" => "Task updated successfully"
+                ], 200);
+            } else {
+                return response()->json([
+                    "message" => "Task not found"
+                ], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error creating task', 'message' => $e->getMessage()], 500);
         }
-
     }
 }
