@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('user_id');
+            $table->int('user_id');
             $table->string('task_title');
             $table->string('task_description')->nullable();
             $table->boolean('task_status');

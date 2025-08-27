@@ -8,9 +8,16 @@ use App\Models\Tasks;
 
 class TasksController extends Controller
 {
-    public function getAllTasks() {
-        $tasks = Tasks::all();
-        return response()->json($tasks);
+    public function getAllTasks($user_id) {
+        try {
+            $tasks = Tasks::where('user_id', $user_id)->get();
+            return response()->json($tasks);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Error fetching user tasks',
+                'message' => $e->getMessage(),
+            ], 500);
+        }
     }
 
     public function createTask(Request $request) {

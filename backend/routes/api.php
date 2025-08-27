@@ -25,9 +25,9 @@ Route::get('/user', [UserAuthController::class, 'getUser'])->middleware('auth:sa
 //  //  Task Endpoints
 //  TEST:
 //  - Get All Tasks
-//  curl -X GET http://127.0.0.1:8000/api/tasks -H "Authorization: Bearer {access_token}"
+//  curl -X POST http://127.0.0.1:8000/api/get-tasks -H "Authorization: Bearer {access_token}"
 //  - Create Tasks
-//  curl -X POST http://127.0.0.1:8000/api/tasks -H "Content-Type: application/json" -d '{"user_id": "123","task_title": "Finish Report","task_description": "Complete the annual report.","task_status": true,"task_due_date": "2024-12-31","task_priority": 2}' -H "Authorization: Bearer {access_token}"
+//  curl -X POST http://127.0.0.1:8000/api/create-task -H "Content-Type: application/json" -d '{"user_id": "123","task_title": "Finish Report","task_description": "Complete the annual report.","task_status": true,"task_due_date": "2024-12-31","task_priority": 2}' -H "Authorization: Bearer {access_token}"
 //  - Get Single Task
 //  curl -X GET http://127.0.0.1:8000/api/tasks/{id} -H "Authorization: Bearer {access_token}"
 //  - Update Tasks
@@ -36,8 +36,8 @@ Route::get('/user', [UserAuthController::class, 'getUser'])->middleware('auth:sa
 //  curl -X DELETE http://127.0.0.1:8000/api/tasks/{id} -H "Authorization: Bearer {access_token}"
 
 Route::middleware('auth:sanctum')->group(function() {
-    Route::get('/tasks', [TasksController::class, 'getAllTasks']);
-    Route::post('/tasks', [TasksController::class, 'createTask']);
+    Route::post('/get-tasks/{user_id}', [TasksController::class, 'getAllTasks']);
+    Route::post('/create-task', [TasksController::class, 'createTask']);
     Route::get('/tasks/{id}', [TasksController::class, 'getSingleTask']);
     Route::put('/tasks/{id}', [TasksController::class, 'updateTask']);
     Route::delete('/tasks/{id}', [TasksController::class, 'deleteTask']);

@@ -41,15 +41,29 @@ nav button {
 
 
 /*  Menu Navigation  */
-#menu-container {
+#open-menu-container {
 	width: 300px;
 	height: 100vh;
-
-	background-color: black;
+  border-right: 3px solid var(--lightPinkColor);
 }
-#top-section {
-	background-color: yellow;
+#closed-menu-container {
+  width: 100px;
+  height: 100vh;
+  border-right: 3px solid var(--lightPinkColor);
+}
+
+#open-top-section {
 	width: 260px;
+	height: 75px;
+	padding-left: 20px;
+	padding-right: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center; 
+}
+#closed-top-section {
+	width: 60px;
 	height: 75px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -58,7 +72,12 @@ nav button {
 	justify-content: space-between;
 	align-items: center;
 }
-#top-section img {
+
+#title {
+  font-family: var(--dottedFont);
+  color: var(--pinkColor);
+}
+#tomato-icon {
    width: 30px;
    filter: hue-rotate(310deg);
 }

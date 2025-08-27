@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6';
 
 import '../stylesheets/nav.css';
 
@@ -17,7 +18,7 @@ function NavBar() {
 }
 
 function DashMenu() {
-	const [isMenuOpen, setMenuState] = useState(true);
+	const [isMenuOpen, setMenuState] = useState(false);
 
 	function changeMenuState() {
 		setMenuState(!isMenuOpen);
@@ -25,18 +26,18 @@ function DashMenu() {
 
   return (
     <>
-			<div id="menu-container">
-				<div id="top-section">
-					<img src="../assets/tomato.svg" />
+			<div id={ isMenuOpen ? "open-menu-container" : "closed-menu-container"}>
+				<div id={ isMenuOpen ? "open-top-section" : "closed-top-section"}>
+					<img id="tomato-icon" src="../assets/tomato.svg" />
 					{
 						isMenuOpen
-							? <h3>PomodoroFlow</h3>
+							? <h3 id="title">PomodoroFlow</h3>
 							: <></>
 					}
 					{ 
 						isMenuOpen
-							? <img src="../assets/angles-left.svg" />
-							: <img src="../assets/angles-right.svg" />
+							? <FaAnglesLeft onClick={ changeMenuState }/>
+							: <FaAnglesRight onClick={ changeMenuState }/>
 					}
 				</div>
 				
