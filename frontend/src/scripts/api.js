@@ -96,8 +96,7 @@ export const getUser = async () => {
 export const getAllTasks = async (user_id) => {
   try {
     const token = localStorage.getItem('token');
-    const response = await fetch(`${API_BASE_URL}/get-tasks/${user_id}`, {
-      method: 'POST',
+    const response = await fetch(`${API_BASE_URL}/tasks/${user_id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
